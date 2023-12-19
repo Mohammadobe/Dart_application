@@ -25,4 +25,9 @@ void main() {
   final newTax = 0.05;
       //newTax = 0.08;
       print(newTax);
+
+  List marks = [10 , 20 , 15 , 16];
+     //marks = [1];
+       marks [1] = 30;
+       print(marks);
 }
