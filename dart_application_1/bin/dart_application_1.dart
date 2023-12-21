@@ -30,4 +30,20 @@ void main() {
     // marks = [1 , 'mohammad'];
        marks [1] = 30;
        print(marks);
+
+// operation dart
+// is and is not
+int a = 8;
+print('__' * 40);
+print('is');
+print(a is int);
+print(a is double);
+print(16 is int);
+print(16.5 is int);
+print('is!');
+print(a is! int);
+print(a is! double);
+print(16 is! int);
+print(16.5 is! int);
+
 }
