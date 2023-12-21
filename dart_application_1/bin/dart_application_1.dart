@@ -27,7 +27,7 @@ void main() {
       print(newTax);
 
   List marks = [10 , 20 , 15 , 16];
-     //marks = [1];
+    // marks = [1 , 'mohammad'];
        marks [1] = 30;
        print(marks);
 }
