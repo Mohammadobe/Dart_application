@@ -18,6 +18,13 @@ void main() {
       salary1 = 500.5;
       print(salary1);
 
+  dynamic s = 10;
+      print(s);
+          s = 'ahmad';
+              print(s);
+          s = [1 , 2 , 3 , 4];
+              print(s);
+
   const tax = 0.08;
       //tax = 0.05;
       print(tax);
