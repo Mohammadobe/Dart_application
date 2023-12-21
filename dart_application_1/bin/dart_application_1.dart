@@ -76,4 +76,22 @@ print('__' * 40);
 print('not  ~');
 print(~firstInt);
 
+// ??=
+print('__' * 40);
+print('??=');
+var x;
+//x = 7;
+print('x befor');
+print(x);
+print('x after');
+print(x ??=5);
+// +=
+//print(x +=2);
+// -=
+//print(x -=2);
+// *=
+//print(x *= 2);
+// /=
+print(x /=2);
+
 }
