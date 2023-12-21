@@ -32,7 +32,7 @@ void main() {
        print(marks);
 
 // operation dart
-// is and is not
+// is 
 int a = 8;
 print('__' * 40);
 print('is');
@@ -40,10 +40,40 @@ print(a is int);
 print(a is double);
 print(16 is int);
 print(16.5 is int);
+
+// is not 
+print('__' * 40);
 print('is!');
 print(a is! int);
 print(a is! double);
 print(16 is! int);
 print(16.5 is! int);
+
+// Bitwise operators
+// & and 
+print('__' * 40);
+print('and &');
+print(true & true);
+print(false & false);
+print(true & false);
+
+// | or 
+print('__' * 40);
+print('or |');
+print(true | true);
+print(false | false);
+print(true | false);
+
+// ^ xor
+print('__' * 40);
+print('xor ^');
+print(true ^ true);
+print(false ^ false);
+print(true ^ false);
+
+// ~ not
+print('__' * 40);
+print('not  ~');
+print(~firstInt);
 
 }
