@@ -138,8 +138,8 @@ print('__' * 40);
 print('while loop');
 while(true){
   print('hello in dart please inter your to guess');
-  String? gussNumber = stdin.readLineSync();
-  if (gussNumber == '5'){
+  int number = int.parse(stdin.readLineSync()!);
+  if (number == 5){
     print('you won the number was 5');
     break;
   }
