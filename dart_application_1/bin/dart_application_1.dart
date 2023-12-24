@@ -148,4 +148,26 @@ while(true){
   }
 }
 
+// do while
+print('__' * 40);
+print('do while');
+bool isTrue = true;
+do {
+  print('hi iam in do while');
+  String? gussNumber = stdin.readLineSync();
+  if (gussNumber == '5'){
+    print('you won the number was 5 change to false');
+    isTrue = false;
+    print('iam after isTrue');
+  }
+  else if(gussNumber == '10'){
+    print('you won the number was 10 break');
+    break;
+    print('iam after break');
+  }
+  else{
+    print('try again');
+  }
+} while (isTrue);
+
 }
