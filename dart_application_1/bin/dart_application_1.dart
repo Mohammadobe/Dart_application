@@ -115,4 +115,9 @@ if (checkNumber > 8){
     print('false');
   }
 
+// for loop
+print('__' * 40);
+for(int i = 0; i <= 10; i++){
+  print(i);
+}
 }
