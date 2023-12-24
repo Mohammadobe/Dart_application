@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   print('Mohammad');
 
@@ -103,6 +105,7 @@ print(x /=2);
 
 // if -- else if -- else
 print('__' * 40);
+print('if - else if - else');
 int checkNumber  = 5;
 if (checkNumber > 8){
   print('true just if');
@@ -117,6 +120,7 @@ if (checkNumber > 8){
 
 // for loop
 print('__' * 40);
+print('for loop');
 for(int i = 0; i <= 10; i++){
 
   if(i == 3){
@@ -129,5 +133,19 @@ for(int i = 0; i <= 10; i++){
   print(i);
 }
 
+// while loop
+print('__' * 40);
+print('while loop');
+while(true){
+  print('hello in dart please inter your to guess');
+  String? gussNumber = stdin.readLineSync();
+  if (gussNumber == '5'){
+    print('you won the number was 5');
+    break;
+  }
+  else{
+    print('oh no you loos -_-');
+  }
+}
 
 }
