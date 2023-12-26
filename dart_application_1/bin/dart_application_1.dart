@@ -170,4 +170,14 @@ do {
   }
 } while (isTrue);
 
+// function type
+print('__' * 40);
+print('function - return type');
+ String getName(){
+  print('getName');
+  String? userName = stdin.readLineSync();
+  return userName!;
+ }
+ String lastName = getName();
+ print('this is last name value $lastName');
 }
