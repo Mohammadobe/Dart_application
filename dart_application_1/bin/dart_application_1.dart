@@ -184,9 +184,10 @@ print('function - return type');
 
 print('__' * 40);
 print('function - void type');
-void calculate(){
-  print('i am void main');
+void calculate(x , y){
+    var z = x + y;
+    print('i am z value: $z');
 }
-calculate();
+calculate(2 , 6);
 
 }
