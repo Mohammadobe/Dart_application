@@ -184,10 +184,16 @@ print('function - return type');
 
 print('__' * 40);
 print('function - void type');
-void calculate(x , y){
+void calculate({int x = 0 , int y = 0}){
     var z = x + y;
     print('i am z value: $z');
 }
-calculate(2 , 6);
+print('welcome to my calculations app');
+print('pass 2 number to sum them');
+print('inter the first number');
+int firstNumber = int.parse(stdin.readLineSync()!);
+print('inter the second number');
+int secondNumber = int.parse(stdin.readLineSync()!);
+calculate(y:secondNumber , x:firstNumber);
 
 }
