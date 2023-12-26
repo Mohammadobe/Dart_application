@@ -182,4 +182,11 @@ print('function - return type');
  String lastName = getName('test');
  print('this is last name value $lastName');
 
+print('__' * 40);
+print('function - void type');
+void calculate(){
+  print('i am void main');
+}
+calculate();
+
 }
