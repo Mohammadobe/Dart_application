@@ -173,12 +173,13 @@ do {
 // function type
 print('__' * 40);
 print('function - return type');
- String getName(){
+ String getName(String? parms){
   print('getName');
+  print('i am param: $parms');
   String? userName = stdin.readLineSync();
   return userName!;
  }
- String lastName = getName();
+ String lastName = getName('test');
  print('this is last name value $lastName');
 
 }
