@@ -184,16 +184,33 @@ print('function - return type');
 
 print('__' * 40);
 print('function - void type');
-void calculate({int x = 0 , int y = 0}){
-    var z = x + y;
+void calculate({int? x = 0 , int? y = 0}){
+    var z = x! + y!;
     print('i am z value: $z');
 }
 print('welcome to my calculations app');
 print('pass 2 number to sum them');
-print('inter the first number');
-int firstNumber = int.parse(stdin.readLineSync()!);
-print('inter the second number');
-int secondNumber = int.parse(stdin.readLineSync()!);
-calculate(y:secondNumber , x:firstNumber);
+var firstNumber;
+var secondNumber;
+
+while(true){
+  if(firstNumber == null){
+    try {
+      print('inter the first number');
+       firstNumber = int.parse(stdin.readLineSync()!);
+    } catch (e) {
+      print('inter a valid number');
+      continue;
+    }
+  }
+    try {
+      print('inter the second number');
+       secondNumber = int.parse(stdin.readLineSync()!);
+      break;
+    } catch (e) {
+      print('inter a valid number');
+    }
+  }
+  calculate(y:firstNumber , x:secondNumber);
 
 }
