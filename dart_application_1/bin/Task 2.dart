@@ -2,7 +2,7 @@ import 'dart:io';
 
 void main(){
 
-    void personInto({String? name , int? age , String? address , String? city}){
+    void personInfo({String? name , int? age , String? address , String? city}){
         print('My name: $name');
         print('My age: $age');
         print('My address: $address');
@@ -50,6 +50,7 @@ void main(){
       catch (e) {
         print('inter a valid city');
       }
-    }
-    personInto(name:firstName , age:firstAge , address:firstAddress , city:firstCity);
+   }
+    print('__' * 10);
+    personInfo(name:firstName , age:firstAge , address:firstAddress , city:firstCity);   
 }
