@@ -15,6 +15,8 @@ void main(){
     var firstCity;
 
     while(true){
+
+      if(firstName == null){
       try {
         print('enter your name:');
         firstName = stdin.readLineSync();
@@ -23,7 +25,7 @@ void main(){
         print('inter a valid name');
         continue;
       }
-
+      }
       try {
         print('enter your age:');
         firstAge = int.parse(stdin.readLineSync()!);
@@ -38,12 +40,12 @@ void main(){
         firstAddress = stdin.readLineSync();
       }
        catch (e) {
-        print('inter a valid address:');
+        print('inter a valid address');
         continue;
       }
 
       try {
-        print('enter your city');
+        print('enter your city:');
         firstCity = stdin.readLineSync();
         break;
       } 
