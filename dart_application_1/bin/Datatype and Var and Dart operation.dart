@@ -1,5 +1,3 @@
-import 'dart:io';
-
 void main() {
   print('Mohammad');
 
@@ -102,10 +100,5 @@ print(x ??=5);
 //print(x *= 2);
 // /=
 print(x /=2);
-
-
-
-
-
 
 }
