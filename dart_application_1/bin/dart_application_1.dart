@@ -103,20 +103,6 @@ print(x ??=5);
 // /=
 print(x /=2);
 
-// if -- else if -- else
-print('__' * 40);
-print('if - else if - else');
-int checkNumber  = 5;
-if (checkNumber > 8){
-  print('true just if');
-}
-  else if(checkNumber > 3){
-    print(' true else if');
-  }
-
-  else{
-    print('false');
-  }
 
 
 
