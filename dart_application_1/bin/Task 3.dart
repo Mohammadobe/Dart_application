@@ -19,8 +19,8 @@ while(true){
       print('Enter username:');
       String? name = stdin.readLineSync();
 
-       print('Enter password:');
-       int pass = int.parse(stdin.readLineSync()!);
+      print('Enter password:');
+      int pass = int.parse(stdin.readLineSync()!);
        
     if(name == userName && pass == passWord){
     print('Welcome $userName');
