@@ -13,15 +13,18 @@ while(true){
 
   else if(choice == 2){
     print('Log in');
+    
+    while(true){
 
-    print('Enter username:');
-    String? name = stdin.readLineSync();
+      print('Enter username:');
+      String? name = stdin.readLineSync();
 
-    print('Enter password:');
-    int pass = int.parse(stdin.readLineSync()!);
-
+       print('Enter password:');
+       int pass = int.parse(stdin.readLineSync()!);
+       
     if(name == userName && pass == passWord){
     print('Welcome $userName');
+    break;
   }
 
     else{
@@ -29,6 +32,7 @@ while(true){
       continue;
     }
 
+   }
   }
 
   else{
