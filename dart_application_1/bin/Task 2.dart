@@ -11,7 +11,7 @@ void main(){
 
     var firstName;
     var firstAge;
-    var firstAddress;
+    String firstAddress = '';
     var firstCity;
 
     while(true){
@@ -36,8 +36,14 @@ void main(){
       }
     
       try {
+
         print('enter your address:');
-        firstAddress = stdin.readLineSync();
+        firstAddress = stdin.readLineSync()!;
+
+        if(firstAddress.length <= 6){
+          print('enter your address:');
+          firstAddress = stdin.readLineSync()!;
+        }
       }
        catch (e) {
         print('inter a valid address');
