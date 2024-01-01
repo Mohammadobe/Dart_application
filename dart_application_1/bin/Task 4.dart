@@ -1,16 +1,50 @@
+import 'dart:io';
 void main(){
 
-  footballPlayers().informationPlayer();
+  String? namePlayer;
+  String? nationalityPlayer;
+  String? bornPlayer;
+  double? tallPlayer;
+  String? clubPlayer;
 
+  print('enter name player:');
+  namePlayer = stdin.readLineSync();
+
+  print('enter nationality player:');
+  nationalityPlayer = stdin.readLineSync();
+
+  print('enter born player:');
+  bornPlayer = stdin.readLineSync();
+
+  print('enter club player:');
+  clubPlayer = stdin.readLineSync();
+
+  while(true){
+    if(tallPlayer == null){
+      try{
+      print('enter tall player:');
+      tallPlayer = double.parse(stdin.readLineSync()!);
+      }
+      catch (e){
+        print('enter a valid tall');
+        continue;
+        }
+      }
+    break;
+  }
+  footballPlayers info = footballPlayers(namePlayer, nationalityPlayer, bornPlayer, tallPlayer, clubPlayer);
+  info.informationPlayer();
 }
 
 class footballPlayers{
 
-  String namePlayer = 'Toni Kroos';
-  String nationalityPlayer = 'Germany';
-  String bornPlayer = '4 / January / 1990';
-  double tallPlayer = 1.83;
-  String clubPlayer = 'Real Madrid';
+  String? namePlayer;
+  String? nationalityPlayer;
+  String? bornPlayer;
+  double? tallPlayer;
+  String? clubPlayer;
+
+  footballPlayers(this.namePlayer , this.nationalityPlayer , this.bornPlayer , this.tallPlayer , this.clubPlayer);
 
   void informationPlayer(){
 
@@ -21,5 +55,4 @@ class footballPlayers{
     print('Club Player: $clubPlayer');
 
   }
-
 }
