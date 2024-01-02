@@ -46,6 +46,70 @@ void info(){
   print('Job: $job');
   print('Relation: $relation');
 
+}
+
+void updateInfo(){
+
+  print('__' * 10);
+  print('Updae the person data');
+
+  print('Update the name: $name');
+  name = stdin.readLineSync();
+
+  print('Update the job: $job');
+  job = stdin.readLineSync();
+
+  print('Update the gender: $gender');
+  gender = stdin.readLineSync();
+
+  while(true){
+
+    if(ssn == ssn){
+      try {  
+        print('Update the ssn: $ssn');
+        ssn = int.parse((stdin.readLineSync())!);
+      } 
+      catch (e) {  
+        print('enter a valid ssn');
+        continue;
+      }
+    }
+
+    if(age == age){
+      try {
+        print('Update the age: $age');
+        age = int.parse((stdin.readLineSync())!);
+      } 
+      catch (e) {
+        print('enter a valid age');
+        continue;
+      }
+    }
+
+    if(tall == tall){
+      try {      
+        print('Update the tall: $tall');
+        tall = double.parse((stdin.readLineSync())!);
+      } 
+      catch (e) {     
+        print('enter a valid tall');
+        continue;    
+      }
+    }
+
+    if(relation == relation){
+      try {      
+        print('Update the relation: $relation');
+        relation = bool.parse((stdin.readLineSync())!);
+      } 
+      catch (e) {     
+        print('enter a valid relation');
+        continue;    
+      }
+    }
+    break;
+  }
+  info();
   }
 }
 
@@ -134,7 +198,74 @@ void main(){
     }
 
     else if(Choice == '2'){
-      print(allPersons);
+      for(var i = 0 ; i < allPersons.length ; i++){
+        print('__' * 10);
+        print('This is person number ${i+1}');
+        print('Person name: ${allPersons[i].name}');
+      }
+
+      print('__' * 10);
+      print('Choice the person number to display his information');
+      
+      int? choicePerson;
+      while(true){
+
+        try {
+          print('enter a valid index');
+          choicePerson = int.parse(stdin.readLineSync()!);
+          if(choicePerson > allPersons.length){
+            print('enter a valid index');
+            choicePerson = int.parse(stdin.readLineSync()!);
+          }
+
+          else{
+            break;
+          }
+
+        } 
+
+        catch (e) {
+          print('Wrong number!');
+        }
+
+      }
+       print('__' * 10);
+       print('This is the person info');
+       allPersons[choicePerson - 1].info();
+
+       print('__' * 10);
+       print('1- To update person information');
+       print('2- Delete person');
+
+       var removeOrUpdate = int.parse((stdin.readLineSync()!));
+       if(removeOrUpdate == 1){
+        allPersons[choicePerson - 1].updateInfo();
+       }
+
+       else if(removeOrUpdate == 2){
+
+        while(true){
+          
+          print('__' * 10);
+          print('Do you want to remove this person y/n');
+          var removeOrNot = stdin.readLineSync();
+
+          if(removeOrNot == 'y'){
+            //allPersons.remove(allPersons[choicePerson - 1]);
+            allPersons.removeAt(choicePerson - 1);
+            print('Person removed');
+            break;
+          }
+
+          else if(removeOrNot == 'n'){
+            break;
+          }
+
+          else{
+            print('Wrong choice!');
+          }
+        }
+      }
     }
 
     else if(Choice == '3'){
