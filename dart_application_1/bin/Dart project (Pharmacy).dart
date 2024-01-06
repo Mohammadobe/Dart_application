@@ -20,7 +20,48 @@ class Drugs{
     print('Warnings drug: $warningsDrug');
     print('Recommended age: $recommendedAge');
     print('Daily dose: $dailyDose');
+  }
 
+  void updateDrugInfo(){
+
+    print('Update the name druge: $nameDrug');
+    nameDrug = stdin.readLineSync();
+
+    print('Update the action and properties drug: $actionsAndPropertiesDrug');
+    actionsAndPropertiesDrug = stdin.readLineSync();
+
+    print('Update the indications drug: $indicationsDrug');
+    indicationsDrug = stdin.readLineSync();
+
+    print('Update the warnings drug: $warningsDrug');
+    warningsDrug = stdin.readLineSync();
+
+    while(true){
+
+      if(recommendedAge == recommendedAge){
+        try {
+          print('Update the recommended age: $recommendedAge');
+          recommendedAge = int.parse(stdin.readLineSync()!);
+        } 
+        catch (e) {
+          print('enter a valid value');
+          continue;
+        }
+      }
+
+      if(dailyDose == dailyDose){
+        try {
+          print('Update the daily dose: $dailyDose');
+          dailyDose = int.parse(stdin.readLineSync()!);
+        } 
+        catch (e) {
+          print('enter a valid value');
+          continue;
+        }
+      }
+    break;
+    }
+    drugInfo();
   }
 }
 
@@ -35,6 +76,9 @@ void main(){
     
     print('__' * 10);
     print('Welcome to our app');
+    print('1- Create a new drug');
+    print('2- Show all drugs');
+    print('3- Exit');
     print('enter your choice');
     int? Choice = int.parse(stdin.readLineSync()!);
 
@@ -91,6 +135,8 @@ void main(){
         print('drug name: ${Basket[i].nameDrug}');
       }
 
+      print('__' * 10);
+      print('Choice the drug number to display his information');
       int? choiceDrug;
 
       while(true){
@@ -98,7 +144,7 @@ void main(){
         try {
           print('enter a valid index');
           choiceDrug = int.parse(stdin.readLineSync()!);
-          if(choiceDrug < Basket.length){
+          if(choiceDrug > Basket.length){
             print('enter a valid index');
             choiceDrug = int.parse(stdin.readLineSync()!);
           }
@@ -106,9 +152,10 @@ void main(){
           else{
             break;
           }
+          
         } 
         catch (e) {
-          print('Wrong number');
+          print('Wrong number!');
         }
       }
       print('__' * 10);
@@ -116,25 +163,38 @@ void main(){
       Basket[choiceDrug - 1].drugInfo();
 
       print('__' * 10);
-      print('1- Add to cart');
-      print('2- Delete drug');
+      print('1- Update drug info');
+      print('2- Add to cart');
+      print('3- Delete drug');
 
-      String? addOrRemove = stdin.readLineSync();
+      int? updateOrAddOrRemove = int.parse(stdin.readLineSync()!);
+      if(updateOrAddOrRemove == 1){
+        Basket[choiceDrug - 1].updateDrugInfo();
+      }
 
-      while(true){
-
-        if(addOrRemove == 'a'){
-          Basket.addAll([choiceDrug - 1]);
-          print('__' * 10);
-          print('Drug added');
-          break;
+      else if(updateOrAddOrRemove == 2){
+        print('__' * 10);
+        for(var i = 0 ; i <Basket.length ; i++){
+        Basket[i].drugInfo();
+        print('(Drug added to cart)');
         }
+      }
+      
+      else if(updateOrAddOrRemove == 3){
+        print('__' * 10);
+        print('Do you want to remove this drug y/n');
+        String? remove = stdin.readLineSync();
+        while(true){
+          if(remove == 'y'){
+            Basket.removeAt(choiceDrug - 1);
+            print('__' * 10);
+            print('Drug removed');
+            break;
+          }
 
-        else if(addOrRemove == 'd'){
-          Basket.removeAt(choiceDrug - 1);
-          print('__' * 10);
-          print('Drug removed');
-          break;
+          else if(remove == 'n'){
+            break;
+          }
         }
       }
     }
