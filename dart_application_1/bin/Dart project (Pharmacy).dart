@@ -24,36 +24,98 @@ class Drugs{
 
   void updateDrugInfo(){
 
+    print('update the drug info ');
     print('Update the name druge: $nameDrug');
-    nameDrug = stdin.readLineSync();
+    var nameDrug1 = stdin.readLineSync();
+    if(nameDrug1 == ''){
+      nameDrug = nameDrug;
+      print('this is name drug ($nameDrug)');
+    }
+
+    else{
+      nameDrug = nameDrug1;
+      print('this is name drug ($nameDrug)');
+    }
 
     print('Update the action and properties drug: $actionsAndPropertiesDrug');
-    actionsAndPropertiesDrug = stdin.readLineSync();
+    var actionsAndPropertiesDrug1 = stdin.readLineSync();
+    if(actionsAndPropertiesDrug1 == ''){
+      actionsAndPropertiesDrug = actionsAndPropertiesDrug;
+      print('this is action and properties drug ($actionsAndPropertiesDrug)');
+    }
+
+    else{
+      actionsAndPropertiesDrug = actionsAndPropertiesDrug1;
+      print('this is action and properties drug ($actionsAndPropertiesDrug)');
+    }
 
     print('Update the indications drug: $indicationsDrug');
-    indicationsDrug = stdin.readLineSync();
+    var indicationsDrug1 = stdin.readLineSync();
+    if(indicationsDrug1 == ''){
+      indicationsDrug = indicationsDrug;
+      print('this is indications drug ($indicationsDrug)');
+    }
+
+    else{
+      indicationsDrug = indicationsDrug1;
+      print('this is indications drug ($indicationsDrug)');
+    }
 
     print('Update the warnings drug: $warningsDrug');
-    warningsDrug = stdin.readLineSync();
+    var warningsDrug1 = stdin.readLineSync();
+    if(warningsDrug1 == ''){
+      warningsDrug = warningsDrug;
+      print('this is warnings drug ($warningsDrug)');
+    }
+
+    else{
+      warningsDrug = warningsDrug1;
+      print('this is warnings drug ($warningsDrug)');
+    }
+
+    var recommendedAge1;
+    var dailyDose1;
 
     while(true){
-
-      if(recommendedAge == recommendedAge){
+      
+      if(recommendedAge != recommendedAge1){
         try {
           print('Update the recommended age: $recommendedAge');
-          recommendedAge = int.parse(stdin.readLineSync()!);
-        } 
+          recommendedAge1 = stdin.readLineSync();
+          if(recommendedAge1 == ''){
+            recommendedAge = recommendedAge;
+            recommendedAge1 = recommendedAge;
+            print('this is recommended age ($recommendedAge)');
+          }
+
+          else{
+            recommendedAge = int.parse(recommendedAge1);
+            print('this is recommended age ($recommendedAge)');
+          }
+        }
+         
         catch (e) {
           print('enter a valid value');
           continue;
         }
       }
 
-      if(dailyDose == dailyDose){
+      if(dailyDose != dailyDose1){
         try {
           print('Update the daily dose: $dailyDose');
-          dailyDose = int.parse(stdin.readLineSync()!);
+          dailyDose1 = stdin.readLineSync();
+          if(dailyDose1 == ''){
+            dailyDose = dailyDose;
+            dailyDose1 = dailyDose;
+            print('this is daily dose ($dailyDose)');
+          }
+
+          else{
+            dailyDose = int.parse(dailyDose1);
+            print('this is daily dose ($dailyDose)');
+          }
         } 
+
         catch (e) {
           print('enter a valid value');
           continue;
@@ -87,7 +149,7 @@ void main(){
       print('__' * 10);
       print('enter the name druge');
       String? nameDrug = stdin.readLineSync();
-
+      
       print('enter the action and properties drug');
       String? actionsAndPropertiesDrug = stdin.readLineSync();
 
