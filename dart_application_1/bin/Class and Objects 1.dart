@@ -51,57 +51,134 @@ void info(){
 void updateInfo(){
 
   print('__' * 10);
-  print('Updae the person data');
+  print('Update the person data');
 
   print('Update the name: $name');
-  name = stdin.readLineSync();
+  var name1 = stdin.readLineSync();
+  if(name1 == ''){
+    name = name;
+    print('this is name from class ($name)');
+  }
+
+  else{
+    name = name1;
+    print('this is name from class ($name)');
+  }
 
   print('Update the job: $job');
-  job = stdin.readLineSync();
+  var job1 = stdin.readLineSync();
+  if(job1 == ''){
+    job = job;
+    print('this is job from class ($job)');
+  }
+
+  else{
+    job = job1;
+    print('this is job from class ($job)');
+  }
 
   print('Update the gender: $gender');
-  gender = stdin.readLineSync();
+  var gender1 = stdin.readLineSync();
+  if(gender1 == ''){
+    gender = gender;
+    print('this is gender from class ($gender)');
+  }
+
+  else{
+    gender = gender1;
+    print('this is gender from class ($gender)');
+  }
+
+  var ssn1;
+  var age1;
+  var tall1;
+  var relation1;
 
   while(true){
 
-    if(ssn == ssn){
+    if(ssn != ssn1){
       try {  
         print('Update the ssn: $ssn');
-        ssn = int.parse((stdin.readLineSync())!);
+        ssn1 = stdin.readLineSync();
+        if(ssn1 == ''){
+          ssn = ssn;
+          ssn1 = ssn;
+          print('this is ssn from class ($ssn)');
+        }
+
+        else{
+          ssn = int.parse(ssn1);
+          print('this is ssn from class ($ssn)');
+        }
       } 
+
       catch (e) {  
         print('enter a valid ssn');
         continue;
       }
     }
 
-    if(age == age){
+    if(age != age1){
       try {
         print('Update the age: $age');
-        age = int.parse((stdin.readLineSync())!);
+        age1 = stdin.readLineSync();
+        if(age1 == ''){
+          age = age;
+          age1 = age;
+          print('this is age from class ($age)');
+        }
+
+        else{
+          age = int.parse(age1);
+          print('this is age from class ($age)');
+        }
       } 
+
       catch (e) {
         print('enter a valid age');
         continue;
       }
     }
 
-    if(tall == tall){
+    if(tall != tall1){
       try {      
         print('Update the tall: $tall');
-        tall = double.parse((stdin.readLineSync())!);
+        tall1 = stdin.readLineSync();
+        if(tall1 == ''){
+          tall = tall;
+          tall1 = tall;
+          print('this is tall from class ($tall)');
+        }
+
+        else{
+          tall = double.parse(tall1);
+          print('this is tall from class ($tall)');
+        }
+        break;
       } 
+
       catch (e) {     
         print('enter a valid tall');
         continue;    
       }
     }
 
-    if(relation == relation){
+    if(relation != relation1){
       try {      
         print('Update the relation: $relation');
-        relation = bool.parse((stdin.readLineSync())!);
+        relation1 = stdin.readLineSync();
+        if(relation1 == ''){
+          relation = relation;
+          relation1 = relation;
+          print('this is relation from class ($relation)');
+        }
+
+        else{
+          relation = bool.parse(relation1);
+          print('this is relation from class ($relation)');
+        }
       } 
+
       catch (e) {     
         print('enter a valid relation');
         continue;    
