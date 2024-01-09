@@ -22,17 +22,16 @@ class Cars {
   void getPrice(){
 
     print('Production price is : $_productionPrice');
+    sellPrice = (0.2 * _productionPrice) + _productionPrice;
     print('Sell price is : $sellPrice');
 
   }
 
-  void set sPrice(int _productionPrice){
-    if(_productionPrice <= 8000){
-      print('The selling price is smaller than requested ');
-    }
-
-    else{
-      print(sellPrice);
-    }
+  int? newProductionPrice;
+  void insertProductionPrice(){
+    print('enter new production price');
+    newProductionPrice = int.parse(stdin.readLineSync()!);
+    _productionPrice = newProductionPrice!;
+    print('New production price: $_productionPrice');
   }
 }

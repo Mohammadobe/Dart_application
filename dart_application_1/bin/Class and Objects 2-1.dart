@@ -10,8 +10,7 @@ void main(){
   print('_' * 10);
   car2.getPrice();
   print('_' * 10);
-  car1.sPrice = 8000;
+  car1.insertProductionPrice();
   print('_' * 10);
-  car2.sPrice = 10000;
-
+  car1.getPrice();
 }
