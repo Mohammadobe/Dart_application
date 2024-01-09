@@ -130,6 +130,7 @@ class Drugs{
 void main(){
   
   List Basket = [];
+  List allDrugs = [];
 
   while(true){
 
@@ -187,14 +188,14 @@ void main(){
       Drugs pharmacy = Drugs(nameDrug , actionsAndPropertiesDrug , indicationsDrug , 
       warningsDrug , recommendedAge , dailyDose);
       pharmacy.drugInfo();
-      Basket.add(pharmacy);
+      allDrugs.add(pharmacy);
     }
 
     else if(Choice == 2){
-      for(var i = 0 ; i < Basket.length ; i++){
+      for(var i = 0 ; i < allDrugs.length ; i++){
         print('__' * 10);
         print('This is drug number ${i+1}');
-        print('drug name: ${Basket[i].nameDrug}');
+        print('drug name: ${allDrugs[i].nameDrug}');
       }
 
       print('__' * 10);
@@ -206,7 +207,7 @@ void main(){
         try {
           print('enter a valid index');
           choiceDrug = int.parse(stdin.readLineSync()!);
-          if(choiceDrug > Basket.length){
+          if(choiceDrug > allDrugs.length){
             print('enter a valid index');
             choiceDrug = int.parse(stdin.readLineSync()!);
           }
@@ -222,24 +223,37 @@ void main(){
       }
       print('__' * 10);
       print('This is the drug info');
-      Basket[choiceDrug - 1].drugInfo();
+      allDrugs[choiceDrug - 1].drugInfo();
 
       print('__' * 10);
-      print('1- Update drug info');
+      print('1- show basket info');
       print('2- Add to cart');
       print('3- Delete drug');
 
       int? updateOrAddOrRemove = int.parse(stdin.readLineSync()!);
       if(updateOrAddOrRemove == 1){
-        Basket[choiceDrug - 1].updateDrugInfo();
+        for(var i = 0 ; i < Basket.length ; i++)
+        {
+          Basket[i].drugInfo();
+        }
       }
 
       else if(updateOrAddOrRemove == 2){
+        for(var i = 0 ; i < allDrugs.length ; i++){
         print('__' * 10);
-        for(var i = 0 ; i <Basket.length ; i++){
-        Basket[i].drugInfo();
-        print('(Drug added to cart)');
-        }
+        print('This is drug number ${i+1}');
+        print('drug name: ${allDrugs[i].nameDrug}');
+      }
+      print('select number of druge to add to cart');
+      int? choicedrugr = int.parse(stdin.readLineSync()!);
+      Basket.add(allDrugs[choicedrugr-1]);
+
+      print('__' * 10);
+
+        // for(var i = 0 ; i <Basket.length ; i++){
+        // Basket[i].drugInfo();
+        // print('(Drug added to cart)');
+        // }
       }
       
       else if(updateOrAddOrRemove == 3){
@@ -248,7 +262,14 @@ void main(){
         String? remove = stdin.readLineSync();
         while(true){
           if(remove == 'y'){
-            Basket.removeAt(choiceDrug - 1);
+for(var i = 0 ; i < Basket.length ; i++)
+        {
+          Basket[i].drugInfo();
+        }
+      print('select number of druge to remove');
+
+        int? removeChoice =int.parse(stdin.readLineSync()!);
+            Basket.removeAt(removeChoice - 1);
             print('__' * 10);
             print('Drug removed');
             break;
