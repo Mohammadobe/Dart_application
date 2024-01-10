@@ -226,11 +226,25 @@ void main(){
       allDrugs[choiceDrug - 1].drugInfo();
 
       print('__' * 10);
+      print('Do yo want add to cart');
+      String? addOrNO = stdin.readLineSync();
+      if(addOrNO == 'y'){
+        //int? choicedrug = int.parse(stdin.readLineSync()!);
+        Basket.add(allDrugs[choiceDrug-1]);
+        print('Added to cart');
+      }
+
+      else if(addOrNO == 'n'){
+        break;
+      }
+
+      print('__' * 10);
       print('1- show basket info');
-      print('2- Add to cart');
-      print('3- Delete drug');
+      print('2- Delete drug');
 
       int? updateOrAddOrRemove = int.parse(stdin.readLineSync()!);
+      print('__' * 10);
+
       if(updateOrAddOrRemove == 1){
         for(var i = 0 ; i < Basket.length ; i++)
         {
@@ -239,36 +253,17 @@ void main(){
       }
 
       else if(updateOrAddOrRemove == 2){
-        for(var i = 0 ; i < allDrugs.length ; i++){
         print('__' * 10);
-        print('This is drug number ${i+1}');
-        print('drug name: ${allDrugs[i].nameDrug}');
-      }
-      print('select number of druge to add to cart');
-      int? choicedrugr = int.parse(stdin.readLineSync()!);
-      Basket.add(allDrugs[choicedrugr-1]);
-
-      print('__' * 10);
-
-        // for(var i = 0 ; i <Basket.length ; i++){
-        // Basket[i].drugInfo();
-        // print('(Drug added to cart)');
-        // }
-      }
-      
-      else if(updateOrAddOrRemove == 3){
-        print('__' * 10);
-        print('Do you want to remove this drug y/n');
+        print('Do you want to remove drug y/n');
         String? remove = stdin.readLineSync();
         while(true){
           if(remove == 'y'){
-for(var i = 0 ; i < Basket.length ; i++)
-        {
-          Basket[i].drugInfo();
-        }
-      print('select number of druge to remove');
+            for(var i = 0 ; i < Basket.length ; i++){
+              Basket[i].drugInfo();
+            }
+            print('select number of druge to remove');
 
-        int? removeChoice =int.parse(stdin.readLineSync()!);
+            int? removeChoice =int.parse(stdin.readLineSync()!);
             Basket.removeAt(removeChoice - 1);
             print('__' * 10);
             print('Drug removed');
