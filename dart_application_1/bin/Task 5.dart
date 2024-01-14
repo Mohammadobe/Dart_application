@@ -25,6 +25,10 @@ class Rose extends Plants{
     print('$plantsName is beautiful!');
   }
 
+    String toString(){
+    return 'Plants: [$plantsName , $plantsColor , $plantsSize , $plantsForm , $plantsGrowthRate , $growInside]';
+  }
+
 }
 
 void main(){
