@@ -198,13 +198,24 @@ void main(){
 
             print('__' * 10);
             print('Hello admin what do you want to do');
-            print('1- Add drug');
-            print('2- Update or Delete drug');
-            print('3- Return to the home page');
+            print('1- Show drugs');
+            print('2- Add drug');
+            print('3- Update or Delete drug');
+            print('4- Return to the home page');
 
             String addOrUpdateOrDelete = stdin.readLineSync()!;
 
             if(addOrUpdateOrDelete == '1'){
+              
+              print('__' * 10);
+              for(var i = 0 ; i < allDrugs.length ; i++){
+              print('This is drug number ${i+1}');
+              print('drug name: ${allDrugs[i].nameDrug}');
+              }
+              
+            }
+
+            else if(addOrUpdateOrDelete == '2'){
 
               print('__' * 10);
               print('enter the name druge');
@@ -254,7 +265,7 @@ void main(){
                   
             }
 
-            else if(addOrUpdateOrDelete == '2'){
+            else if(addOrUpdateOrDelete == '3'){
 
               for(var i = 0 ; i < allDrugs.length ; i++){
                 print('This is drug number ${i+1}');
@@ -291,29 +302,30 @@ void main(){
               print('This is the drug info');
               allDrugs[choiceDrug - 1].drugInfo();
 
-              print('__' * 10);
-              print('1- Update drug');
-              print('2- Delete drug');
-
-              String updateOrDelete = stdin.readLineSync()!;
-
               while(true){
 
-                if(updateOrDelete == '1'){
+                print('__' * 10);
+                print('1- Update drug');
+                print('2- Delete drug');
+                print('3- Back');
+
+                String updateOrDeleteOrBack = stdin.readLineSync()!;
+
+                if(updateOrDeleteOrBack == '1'){
 
                   allDrugs[choiceDrug - 1].updateDrugInfo();
 
                 }
 
-                else if(updateOrDelete == '2'){
-
-                  print('__' * 10);
-                  print('Do you want to remove drug y/n');
-
-                  String? Delete = stdin.readLineSync();
+                else if(updateOrDeleteOrBack == '2'){
 
                   while(true){
 
+                    print('__' * 10);
+                    print('Do you want to remove drug y/n');
+
+                    String? Delete = stdin.readLineSync();
+                    
                     if(Delete == 'y'){
                     
                       allDrugs.removeAt(choiceDrug - 1);
@@ -329,20 +341,24 @@ void main(){
 
                     else{
                       print('enter a valid value');
-                      break;
                     }
 
                   }
+                  break;
+                }
+
+                else if(updateOrDeleteOrBack == '3'){
+                  break;
                 }
 
                 else{
                   print('Wrong choice!');
                 }
-                break;
+                continue;
               }
             }
 
-            else if(addOrUpdateOrDelete == '3'){
+            else if(addOrUpdateOrDelete == '4'){
               break;
             }
 
@@ -377,13 +393,12 @@ void main(){
 
         if(User == userName && Pass2 == password){
 
-          print('__' * 10);
-          print('Hello user');
-          print('1- Show all drugs');
-          print('2- Back');
-
           while(true){
 
+            print('__' * 10);
+            print('Hello user');
+            print('1- Show all drugs');
+            print('2- Back');
             String showOrBack = stdin.readLineSync()!;
 
             if(showOrBack == '1'){
@@ -449,26 +464,28 @@ void main(){
 
                   print('__' * 10);
                   print('1- Show basket info');
-                  print('2- Exit');
+                  print('2- Back');
 
-                  int? showOrExit = int.parse(stdin.readLineSync()!);
+                  int? showOrBack = int.parse(stdin.readLineSync()!);
                   print('__' * 10);
 
-                  if(showOrExit == 1){
+                  if(showOrBack == 1){
                     for(var i = 0 ; i < Basket.length ; i++){
                       // Basket[i].drugInfo();
                       print('This is drug number ${i+1}');
                       print('drug name: ${Basket[i].nameDrug}');
                     }
 
-                    print('1- Add another drug to the basket');
-                    print('2- Remove drug from basket');
-
                     while(true){
+                      
+                      print('__' * 10);
+                      print('1- Add another drug to the basket');
+                      print('2- Remove drug from basket');
+                      print('3- Back');
 
-                      String addOrRemove = stdin.readLineSync()!;
+                      String addOrRemoveOrBack = stdin.readLineSync()!;
           
-                      if(addOrRemove == '1'){
+                      if(addOrRemoveOrBack == '1'){
 
                         for(var i = 0 ; i < allDrugs.length ; i++){
                         print('This is drug number ${i+1}');
@@ -530,7 +547,7 @@ void main(){
                         break;
                       }
 
-                      else if(addOrRemove == '2'){
+                      else if(addOrRemoveOrBack == '2'){
 
                         while(true){
                           
@@ -577,10 +594,18 @@ void main(){
                         break;
                       }
                       
+                      else if(addOrRemoveOrBack == '3'){
+                        break;
+                      }
+                      
+                      else{
+                      print('Wrong choice');
+                      }
+                      continue;
                     }
                   }
 
-                  else if(showOrExit == 2){
+                  else if(showOrBack == 2){
                     break;
                   }
 
@@ -588,7 +613,7 @@ void main(){
                     print('Wrong choice');
                   }
                 }
-                break;
+                continue;
               }
 
             else if(showOrBack == '2'){
@@ -597,9 +622,8 @@ void main(){
 
             else{
               print('Wrong Choice');
-              break;
             }
-
+            continue;
           }
         }
       
