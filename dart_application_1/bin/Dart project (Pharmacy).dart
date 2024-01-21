@@ -14,12 +14,13 @@ class Drugs{
 
   void drugInfo(){
 
-    print('name drug: $nameDrug');
-    print('Action and properties drug: $actionsAndPropertiesDrug');
-    print('Indications drug: $indicationsDrug');
-    print('Warnings drug: $warningsDrug');
-    print('Recommended age: $recommendedAge');
-    print('Daily dose: $dailyDose');
+    print('1- name drug: $nameDrug');
+    print('2- Action and properties drug: $actionsAndPropertiesDrug');
+    print('3- Indications drug: $indicationsDrug');
+    print('4- Warnings drug: $warningsDrug');
+    print('5- Recommended age: $recommendedAge');
+    print('6- Daily dose: $dailyDose');
+    
   }
 
   void updateDrugInfo(){
@@ -262,6 +263,8 @@ void main(){
               warningsDrug , recommendedAge , dailyDose);
               pharmacy.drugInfo();
               allDrugs.add(pharmacy);
+              recommendedAge = null;
+              dailyDose = null;
                   
             }
 
