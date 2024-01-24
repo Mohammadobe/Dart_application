@@ -182,14 +182,14 @@ void main(){
         while(true){
 
         String adminName = 'Admin';
-        int password = 1234;
+        String password = '1234';
 
         print('__' * 10);
         print('Enter Username');
         String admin = stdin.readLineSync()!;
 
         print('Enter Password');
-        int Pass1 = int.parse(stdin.readLineSync()!);
+        String Pass1 = stdin.readLineSync()!;
         
         
 
@@ -384,258 +384,571 @@ void main(){
 
       while(true){
         
-        String userName = 'Mohammad';
-        int password = 1122;
-
         print('__' * 10);
-        print('Enter Username');
-        String User = stdin.readLineSync()!;
+        print('1- Create account');
+        print('2- Log in');
+        print('3- Back');
 
-        print('Enter Password');
-        int Pass2 = int.parse(stdin.readLineSync()!);
+        String createOrLogOrback = stdin.readLineSync()!;
+        
+        if(createOrLogOrback == '1'){
 
-        if(User == userName && Pass2 == password){
+          print('__' * 10);
+          print('Sign Up');
+
+          print('Enetr name:');
+          String name = stdin.readLineSync()!;
 
           while(true){
+            
+            print('Enetr name:');
+            String name = stdin.readLineSync()!;
+            
+            if(name.length <= 8){
+              print(name);
+            }
 
+            else{
+              print('The name is longer than required. Enter a valid value');
+              continue;
+            }
+            break;
+
+          }
+
+          print('Enter password:');
+          String password = stdin.readLineSync()!;
+
+          print('Enter email:');
+          String email = stdin.readLineSync()!;
+
+          print('Account created');
+          
+          while(true){
+            
             print('__' * 10);
-            print('Hello user');
-            print('1- Show all drugs');
-            print('2- Back');
-            String showOrBack = stdin.readLineSync()!;
+            print('Log in');
 
-            if(showOrBack == '1'){
+            print('Enter username');
+            String name1 = stdin.readLineSync()!;
 
-              for(var i = 0 ; i < allDrugs.length ; i++){
-                print('This is drug number ${i+1}');
-                print('drug name: ${allDrugs[i].nameDrug}');
-              }
+            print('Enter password');
+            String password1 = stdin.readLineSync()!;
 
-              print('__' * 10);
-              print('Choice the drug number to display his information');
-
-              int? choiceDrug;
+            if(name1 == name && password1 == password){
 
               while(true){
 
-                try {
-                  print('enter a valid index');
-                  choiceDrug = int.parse(stdin.readLineSync()!);
-                  if(choiceDrug > allDrugs.length){
-                    print('enter a valid index');
-                    choiceDrug = int.parse(stdin.readLineSync()!);
-                  }
-
-                  else{
-                    break;
-                  }
-                } 
-
-                catch (e) {
-                  print('Wrong number!');
-                }
-              }
-
                 print('__' * 10);
-                print('This is the drug info');
-                allDrugs[choiceDrug - 1].drugInfo();
+                print('Hello $name');
+                print('1- Show all drugs');
+                print('2- Back');
+                String showOrBack = stdin.readLineSync()!;
 
-                while(true){
+                if(showOrBack == '1'){
 
-                  print('__' * 10);
-                  print('Do yo want add to cart y/n');
-
-                  String? addOrNO = stdin.readLineSync();
-
-                  if(addOrNO == 'y'){
-                    Basket.add(allDrugs[choiceDrug-1]);
-                    print('Added to cart');
-                    break;
+                  for(var i = 0 ; i < allDrugs.length ; i++){
+                    print('This is drug number ${i+1}');
+                    print('drug name: ${allDrugs[i].nameDrug}');
                   }
 
-                  else if(addOrNO == 'n'){
-                    break;
-                  }
-
-                  else{
-                    print('Wrong choice');
-                  }
-                  continue;
-                }
-
-                while(true){
-
                   print('__' * 10);
-                  print('1- Show basket info');
-                  print('2- Back');
+                  print('Choice the drug number to display his information');
 
-                  int? showOrBack = int.parse(stdin.readLineSync()!);
-                  print('__' * 10);
+                  int? choiceDrug;
 
-                  if(showOrBack == 1){
-                    for(var i = 0 ; i < Basket.length ; i++){
-                      // Basket[i].drugInfo();
-                      print('This is drug number ${i+1}');
-                      print('drug name: ${Basket[i].nameDrug}');
+                  while(true){
+
+                    try {
+                      print('enter a valid index');
+                      choiceDrug = int.parse(stdin.readLineSync()!);
+                      if(choiceDrug > allDrugs.length){
+                        print('enter a valid index');
+                        choiceDrug = int.parse(stdin.readLineSync()!);
+                      }
+
+                      else{
+                        break;
+                      }
+                    } 
+
+                    catch (e) {
+                      print('Wrong number!');
                     }
+                  }
+
+                    print('__' * 10);
+                    print('This is the drug info');
+                    allDrugs[choiceDrug - 1].drugInfo();
 
                     while(true){
-                      
+
                       print('__' * 10);
-                      print('1- Add another drug to the basket');
-                      print('2- Remove drug from basket');
-                      print('3- Back');
+                      print('Do yo want add to cart y/n');
 
-                      String addOrRemoveOrBack = stdin.readLineSync()!;
-          
-                      if(addOrRemoveOrBack == '1'){
+                      String? addOrNO = stdin.readLineSync();
 
-                        for(var i = 0 ; i < allDrugs.length ; i++){
-                        print('This is drug number ${i+1}');
-                        print('drug name: ${allDrugs[i].nameDrug}');
-                        }
-
-                        print('__' * 10);
-                        print('Choice the drug number to display his information');
-
-                        int? choiceDrug;
-
-                        while(true){
-
-                          try {
-                            print('enter a valid index');
-                            choiceDrug = int.parse(stdin.readLineSync()!);
-                            if(choiceDrug > allDrugs.length){
-                              print('enter a valid index');
-                              choiceDrug = int.parse(stdin.readLineSync()!);
-                            }
-
-                            else{
-                              break;
-                            }
-                          } 
-
-                          catch (e) {
-                            print('Wrong number!');
-                          }
-                        }
-
-                        print('__' * 10);
-                        print('This is the drug info');
-                        allDrugs[choiceDrug - 1].drugInfo();
-                      
-
-                        while(true){
-
-                          print('__' * 10);
-                          print('Do yo want add to cart y/n');
-
-                          String? addOrNO = stdin.readLineSync();
-
-                          if(addOrNO == 'y'){
-                            Basket.add(allDrugs[choiceDrug-1]);
-                            print('Added to cart');
-                            break;
-                          }
-
-                          else if(addOrNO == 'n'){
-                            break;
-                          }
-
-                          else{
-                            print('Wrong choice');
-                          }
-                          continue;
-                        }
+                      if(addOrNO == 'y'){
+                        Basket.add(allDrugs[choiceDrug-1]);
+                        print('Added to cart');
                         break;
                       }
 
-                      else if(addOrRemoveOrBack == '2'){
+                      else if(addOrNO == 'n'){
+                        break;
+                      }
+
+                      else{
+                        print('Wrong choice');
+                      }
+                      continue;
+                    }
+
+                    while(true){
+
+                      print('__' * 10);
+                      print('1- Show basket info');
+                      print('2- Back');
+
+                      int? showOrBack = int.parse(stdin.readLineSync()!);
+                      print('__' * 10);
+
+                      if(showOrBack == 1){
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          // Basket[i].drugInfo();
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
 
                         while(true){
                           
                           print('__' * 10);
-                          print('Do you want to remove drug y/n');
+                          print('1- Add another drug to the basket');
+                          print('2- Remove drug from basket');
+                          print('3- Back');
 
-                          String? remove = stdin.readLineSync();
+                          String addOrRemoveOrBack = stdin.readLineSync()!;
+              
+                          if(addOrRemoveOrBack == '1'){
 
-                          if(remove == 'y'){
-                            
-                            for(var i = 0 ; i < Basket.length ; i++){
-                              //Basket[i].drugInfo();
-                              print('This is drug number ${i+1}');
-                              print('drug name: ${Basket[i].nameDrug}');
+                            for(var i = 0 ; i < allDrugs.length ; i++){
+                            print('This is drug number ${i+1}');
+                            print('drug name: ${allDrugs[i].nameDrug}');
                             }
-                            
-                            print('select number of druge to remove');
-
-                            int? removeChoice =int.parse(stdin.readLineSync()!);
-
-                            Basket.removeAt(removeChoice - 1);
-                            print('__' * 10);
-                            print('Drug removed');
 
                             print('__' * 10);
-                            print('These are the contents of the basket');
-                            for(var i = 0 ; i < Basket.length ; i++){
-                            // Basket[i].drugInfo();
-                              print('This is drug number ${i+1}');
-                              print('drug name: ${Basket[i].nameDrug}');
+                            print('Choice the drug number to display his information');
+
+                            int? choiceDrug;
+
+                            while(true){
+
+                              try {
+                                print('enter a valid index');
+                                choiceDrug = int.parse(stdin.readLineSync()!);
+                                if(choiceDrug > allDrugs.length){
+                                  print('enter a valid index');
+                                  choiceDrug = int.parse(stdin.readLineSync()!);
+                                }
+
+                                else{
+                                  break;
+                                }
+                              } 
+
+                              catch (e) {
+                                print('Wrong number!');
+                              }
+                            }
+
+                            print('__' * 10);
+                            print('This is the drug info');
+                            allDrugs[choiceDrug - 1].drugInfo();
+                          
+
+                            while(true){
+
+                              print('__' * 10);
+                              print('Do yo want add to cart y/n');
+
+                              String? addOrNO = stdin.readLineSync();
+
+                              if(addOrNO == 'y'){
+                                Basket.add(allDrugs[choiceDrug-1]);
+                                print('Added to cart');
+                                break;
+                              }
+
+                              else if(addOrNO == 'n'){
+                                break;
+                              }
+
+                              else{
+                                print('Wrong choice');
+                              }
+                              continue;
                             }
                             break;
                           }
 
-                          else if(remove == 'n'){
+                          else if(addOrRemoveOrBack == '2'){
+
+                            while(true){
+                              
+                              print('__' * 10);
+                              print('Do you want to remove drug y/n');
+
+                              String? remove = stdin.readLineSync();
+
+                              if(remove == 'y'){
+                                
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  //Basket[i].drugInfo();
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
+                                
+                                print('select number of druge to remove');
+
+                                int? removeChoice =int.parse(stdin.readLineSync()!);
+
+                                Basket.removeAt(removeChoice - 1);
+                                print('__' * 10);
+                                print('Drug removed');
+
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                // Basket[i].drugInfo();
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
+                                break;
+                              }
+
+                              else if(remove == 'n'){
+                                break;
+                              }
+
+                              else{
+                                print('Wrong choice');
+                              }
+                              continue;
+                            }
                             break;
                           }
-
+                          
+                          else if(addOrRemoveOrBack == '3'){
+                            break;
+                          }
+                          
                           else{
-                            print('Wrong choice');
+                          print('Wrong choice');
                           }
                           continue;
                         }
+                      }
+
+                      else if(showOrBack == 2){
                         break;
                       }
-                      
-                      else if(addOrRemoveOrBack == '3'){
-                        break;
-                      }
-                      
+
                       else{
-                      print('Wrong choice');
+                        print('Wrong choice');
                       }
-                      continue;
                     }
+                    continue;
                   }
 
-                  else if(showOrBack == 2){
-                    break;
-                  }
+                else if(showOrBack == '2'){
+                  break;
+                }
 
-                  else{
-                    print('Wrong choice');
-                  }
+                else{
+                  print('Wrong Choice');
                 }
                 continue;
               }
-
-            else if(showOrBack == '2'){
-              break;
             }
 
             else{
-              print('Wrong Choice');
+              print('Incorrect username or password');
+              continue;
             }
-            continue;
+            break;
           }
+
         }
-      
+
+        else if(createOrLogOrback == '2'){
+          
+          while(true){
+
+            String userName = 'Mohammad';
+            String password = '1122';
+
+            print('__' * 10);
+            print('Enter Username');
+            String User = stdin.readLineSync()!;
+
+            print('Enter Password');
+            String Pass2 = stdin.readLineSync()!;
+
+            if(User == userName && Pass2 == password){
+
+              while(true){
+
+                print('__' * 10);
+                print('Hello $userName');
+                print('1- Show all drugs');
+                print('2- Back');
+                String showOrBack = stdin.readLineSync()!;
+
+                if(showOrBack == '1'){
+
+                  for(var i = 0 ; i < allDrugs.length ; i++){
+                    print('This is drug number ${i+1}');
+                    print('drug name: ${allDrugs[i].nameDrug}');
+                  }
+
+                  print('__' * 10);
+                  print('Choice the drug number to display his information');
+
+                  int? choiceDrug;
+
+                  while(true){
+
+                    try {
+                      print('enter a valid index');
+                      choiceDrug = int.parse(stdin.readLineSync()!);
+                      if(choiceDrug > allDrugs.length){
+                        print('enter a valid index');
+                        choiceDrug = int.parse(stdin.readLineSync()!);
+                      }
+
+                      else{
+                        break;
+                      }
+                    } 
+
+                    catch (e) {
+                      print('Wrong number!');
+                    }
+                  }
+
+                    print('__' * 10);
+                    print('This is the drug info');
+                    allDrugs[choiceDrug - 1].drugInfo();
+
+                    while(true){
+
+                      print('__' * 10);
+                      print('Do yo want add to cart y/n');
+
+                      String? addOrNO = stdin.readLineSync();
+
+                      if(addOrNO == 'y'){
+                        Basket.add(allDrugs[choiceDrug-1]);
+                        print('Added to cart');
+                        break;
+                      }
+
+                      else if(addOrNO == 'n'){
+                        break;
+                      }
+
+                      else{
+                        print('Wrong choice');
+                      }
+                      continue;
+                    }
+
+                    while(true){
+
+                      print('__' * 10);
+                      print('1- Show basket info');
+                      print('2- Back');
+
+                      int? showOrBack = int.parse(stdin.readLineSync()!);
+                      print('__' * 10);
+
+                      if(showOrBack == 1){
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          // Basket[i].drugInfo();
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
+
+                        while(true){
+                          
+                          print('__' * 10);
+                          print('1- Add another drug to the basket');
+                          print('2- Remove drug from basket');
+                          print('3- Back');
+
+                          String addOrRemoveOrBack = stdin.readLineSync()!;
+              
+                          if(addOrRemoveOrBack == '1'){
+
+                            for(var i = 0 ; i < allDrugs.length ; i++){
+                            print('This is drug number ${i+1}');
+                            print('drug name: ${allDrugs[i].nameDrug}');
+                            }
+
+                            print('__' * 10);
+                            print('Choice the drug number to display his information');
+
+                            int? choiceDrug;
+
+                            while(true){
+
+                              try {
+                                print('enter a valid index');
+                                choiceDrug = int.parse(stdin.readLineSync()!);
+                                if(choiceDrug > allDrugs.length){
+                                  print('enter a valid index');
+                                  choiceDrug = int.parse(stdin.readLineSync()!);
+                                }
+
+                                else{
+                                  break;
+                                }
+                              } 
+
+                              catch (e) {
+                                print('Wrong number!');
+                              }
+                            }
+
+                            print('__' * 10);
+                            print('This is the drug info');
+                            allDrugs[choiceDrug - 1].drugInfo();
+                          
+
+                            while(true){
+
+                              print('__' * 10);
+                              print('Do yo want add to cart y/n');
+
+                              String? addOrNO = stdin.readLineSync();
+
+                              if(addOrNO == 'y'){
+                                Basket.add(allDrugs[choiceDrug-1]);
+                                print('Added to cart');
+                                break;
+                              }
+
+                              else if(addOrNO == 'n'){
+                                break;
+                              }
+
+                              else{
+                                print('Wrong choice');
+                              }
+                              continue;
+                            }
+                            break;
+                          }
+
+                          else if(addOrRemoveOrBack == '2'){
+
+                            while(true){
+                              
+                              print('__' * 10);
+                              print('Do you want to remove drug y/n');
+
+                              String? remove = stdin.readLineSync();
+
+                              if(remove == 'y'){
+                                
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  //Basket[i].drugInfo();
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
+                                
+                                print('select number of druge to remove');
+
+                                int? removeChoice =int.parse(stdin.readLineSync()!);
+
+                                Basket.removeAt(removeChoice - 1);
+                                print('__' * 10);
+                                print('Drug removed');
+
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                // Basket[i].drugInfo();
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
+                                break;
+                              }
+
+                              else if(remove == 'n'){
+                                break;
+                              }
+
+                              else{
+                                print('Wrong choice');
+                              }
+                              continue;
+                            }
+                            break;
+                          }
+                          
+                          else if(addOrRemoveOrBack == '3'){
+                            break;
+                          }
+                          
+                          else{
+                          print('Wrong choice');
+                          }
+                          continue;
+                        }
+                      }
+
+                      else if(showOrBack == 2){
+                        break;
+                      }
+
+                      else{
+                        print('Wrong choice');
+                      }
+                    }
+                    continue;
+                  }
+
+                else if(showOrBack == '2'){
+                  break;
+                }
+
+                else{
+                  print('Wrong Choice');
+                }
+                continue;
+              }
+            }
+          
+            else{
+            print('Incorrect username or password');
+            continue;
+            }
+            break;
+          }
+
+        }
+
+        else if(createOrLogOrback == '3'){
+          break;
+        }
+
         else{
-        print('Incorrect username or password');
-        continue;
+          print('Wrong choice');
         }
-        break;
-      } 
+        continue;
+      }
+
     }
   
     else if(adminOrUser == '3'){
