@@ -442,10 +442,11 @@ void main(){
                 print('__' * 10);
                 print('Hello $name');
                 print('1- Show all drugs');
-                print('2- Back');
-                String showOrBack = stdin.readLineSync()!;
+                print('2- Send a note or consult');
+                print('3- Back');
+                String showOrSendOrBack = stdin.readLineSync()!;
 
-                if(showOrBack == '1'){
+                if(showOrSendOrBack == '1'){
 
                   for(var i = 0 ; i < allDrugs.length ; i++){
                     print('This is drug number ${i+1}');
@@ -660,7 +661,14 @@ void main(){
                     continue;
                   }
 
-                else if(showOrBack == '2'){
+                else if(showOrSendOrBack == '2'){
+                  print('__' * 10);
+                  print('Enter your note or consultation:');
+                  String commentOrConsult = stdin.readLineSync()!;
+                  print('Your note has been sent. Thank you $name');
+                }
+
+                else if(showOrSendOrBack == '3'){
                   break;
                 }
 
@@ -701,10 +709,11 @@ void main(){
                 print('__' * 10);
                 print('Hello $userName');
                 print('1- Show all drugs');
-                print('2- Back');
-                String showOrBack = stdin.readLineSync()!;
+                print('2- Send a note or consult');
+                print('3- Back');
+                String showOrSendOrBack = stdin.readLineSync()!;
 
-                if(showOrBack == '1'){
+                if(showOrSendOrBack == '1'){
 
                   for(var i = 0 ; i < allDrugs.length ; i++){
                     print('This is drug number ${i+1}');
@@ -918,8 +927,15 @@ void main(){
                     }
                     continue;
                   }
+                
+                else if(showOrSendOrBack == '2'){
+                  print('__' * 10);
+                  print('Enter your note or consultation:');
+                  String commentOrConsult = stdin.readLineSync()!;
+                  print('Your note has been sent. Thank you $userName');
+                }
 
-                else if(showOrBack == '2'){
+                else if(showOrSendOrBack == '3'){
                   break;
                 }
 
