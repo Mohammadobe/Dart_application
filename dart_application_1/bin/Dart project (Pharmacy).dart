@@ -492,10 +492,23 @@ void main(){
                       if(addOrNO == 'y'){
                         Basket.add(allDrugs[choiceDrug-1]);
                         print('Added to cart');
+                        
+                        print('__' * 10);
+                        print('These are the contents of the basket');
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
                         break;
                       }
 
                       else if(addOrNO == 'n'){
+                        print('__' * 10);
+                        print('These are the contents of the basket');
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
                         break;
                       }
 
@@ -577,10 +590,23 @@ void main(){
                               if(addOrNO == 'y'){
                                 Basket.add(allDrugs[choiceDrug-1]);
                                 print('Added to cart');
+
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
                               else if(addOrNO == 'n'){
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
@@ -620,7 +646,6 @@ void main(){
                                 print('__' * 10);
                                 print('These are the contents of the basket');
                                 for(var i = 0 ; i < Basket.length ; i++){
-                                // Basket[i].drugInfo();
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
                                 }
@@ -628,6 +653,12 @@ void main(){
                               }
 
                               else if(remove == 'n'){
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
@@ -759,10 +790,23 @@ void main(){
                       if(addOrNO == 'y'){
                         Basket.add(allDrugs[choiceDrug-1]);
                         print('Added to cart');
+
+                        print('__' * 10);
+                        print('These are the contents of the basket');
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
                         break;
                       }
 
                       else if(addOrNO == 'n'){
+                        print('__' * 10);
+                        print('These are the contents of the basket');
+                        for(var i = 0 ; i < Basket.length ; i++){
+                          print('This is drug number ${i+1}');
+                          print('drug name: ${Basket[i].nameDrug}');
+                        }
                         break;
                       }
 
@@ -783,7 +827,6 @@ void main(){
 
                       if(showOrBack == 1){
                         for(var i = 0 ; i < Basket.length ; i++){
-                          // Basket[i].drugInfo();
                           print('This is drug number ${i+1}');
                           print('drug name: ${Basket[i].nameDrug}');
                         }
@@ -844,10 +887,23 @@ void main(){
                               if(addOrNO == 'y'){
                                 Basket.add(allDrugs[choiceDrug-1]);
                                 print('Added to cart');
+
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
                               else if(addOrNO == 'n'){
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
@@ -871,7 +927,6 @@ void main(){
                               if(remove == 'y'){
                                 
                                 for(var i = 0 ; i < Basket.length ; i++){
-                                  //Basket[i].drugInfo();
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
                                 }
@@ -887,7 +942,6 @@ void main(){
                                 print('__' * 10);
                                 print('These are the contents of the basket');
                                 for(var i = 0 ; i < Basket.length ; i++){
-                                // Basket[i].drugInfo();
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
                                 }
@@ -895,6 +949,12 @@ void main(){
                               }
 
                               else if(remove == 'n'){
+                                print('__' * 10);
+                                print('These are the contents of the basket');
+                                for(var i = 0 ; i < Basket.length ; i++){
+                                  print('This is drug number ${i+1}');
+                                  print('drug name: ${Basket[i].nameDrug}');
+                                }
                                 break;
                               }
 
