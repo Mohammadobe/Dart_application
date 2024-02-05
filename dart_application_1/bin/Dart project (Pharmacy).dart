@@ -8,9 +8,10 @@ class Drugs{
   String? warningsDrug;
   int? recommendedAge;
   int? dailyDose;
+  double? sellPrice;
 
   Drugs(this.nameDrug , this.actionsAndPropertiesDrug , this.indicationsDrug , 
-        this.warningsDrug , this.recommendedAge , this.dailyDose);
+        this.warningsDrug , this.recommendedAge , this.dailyDose , this.sellPrice);
 
   void drugInfo(){
 
@@ -20,6 +21,7 @@ class Drugs{
     print('4- Warnings drug: $warningsDrug');
     print('5- Recommended age: $recommendedAge');
     print('6- Daily dose: $dailyDose');
+    print('7- Sell price: $sellPrice');
     
   }
 
@@ -76,6 +78,7 @@ class Drugs{
 
     var recommendedAge1;
     var dailyDose1;
+    var sellPrice1;
 
     while(true){
       
@@ -122,6 +125,28 @@ class Drugs{
           continue;
         }
       }
+
+      if(sellPrice != sellPrice1){
+        try {
+          print('Update the sell price: $sellPrice');
+          sellPrice1 = stdin.readLineSync()!;
+          if(sellPrice1 == ''){
+            sellPrice = sellPrice;
+            sellPrice1 = sellPrice;
+            print('this is sell price ($sellPrice)');
+          }
+
+          else{
+            sellPrice = double.parse(sellPrice1);
+            print('this is daily dose ($sellPrice)');
+          }
+        } 
+
+        catch (e) {
+          print('enter a valid value');
+          continue;
+        }
+      }
     break;
     }
     drugInfo();
@@ -132,11 +157,11 @@ class diabetesDrug extends Drugs{
 
   String nameDiabetesDrug;
   diabetesDrug(String nameDrug , String actionsAndPropertiesDrug , String indicationsDrug , String warningsDrug ,
-               int recommendedAge , int dailyDose , this.nameDiabetesDrug) : super(nameDrug , actionsAndPropertiesDrug ,
-               indicationsDrug , warningsDrug , recommendedAge , dailyDose);
+               int recommendedAge , int dailyDose , double sellPrice , this.nameDiabetesDrug) : super(nameDrug , actionsAndPropertiesDrug ,
+               indicationsDrug , warningsDrug , recommendedAge , dailyDose , sellPrice);
 
   String info(){
-    return 'Diabetes drug: $nameDrug , $actionsAndPropertiesDrug , $indicationsDrug , $warningsDrug , $recommendedAge , $dailyDose , $nameDiabetesDrug';
+    return 'Diabetes drug: $nameDrug , $actionsAndPropertiesDrug , $indicationsDrug , $warningsDrug , $recommendedAge , $dailyDose , $nameDiabetesDrug , $sellPrice';
   }
   
 }
@@ -145,21 +170,21 @@ class bloodPressureDrug extends Drugs{
 
   String nameBloodPressureDrug;
   bloodPressureDrug(String nameDrug , String actionsAndPropertiesDrug , String indicationsDrug , String warningsDrug ,
-                    int recommendedAge , int dailyDose , this.nameBloodPressureDrug) : super(nameDrug , actionsAndPropertiesDrug ,
-                    indicationsDrug , warningsDrug , recommendedAge , dailyDose);
+                    int recommendedAge , int dailyDose , double sellPrice , this.nameBloodPressureDrug) : super(nameDrug , actionsAndPropertiesDrug ,
+                    indicationsDrug , warningsDrug , recommendedAge , dailyDose , sellPrice);
 
   String info(){
-    return 'Blood pressure drug: $nameDrug , $actionsAndPropertiesDrug , $indicationsDrug , $warningsDrug , $recommendedAge , $dailyDose , $nameBloodPressureDrug';
+    return 'Blood pressure drug: $nameDrug , $actionsAndPropertiesDrug , $indicationsDrug , $warningsDrug , $recommendedAge , $dailyDose , $nameBloodPressureDrug , $sellPrice';
   }
 
 }
 
 void main(){
   
-  diabetesDrug diabetes = diabetesDrug('t', 't', 't', 't', 5 , 5 , 't');
-  bloodPressureDrug bloodPressure = bloodPressureDrug('b', 'b', 'b', 'b', 6 , 6 , 'b');
-  Drugs d1 = Drugs('q' , 'q' , 'q' , 'q' , 1 , 1);
-  Drugs d2 = Drugs('m' , 'm' , 'm' , 'm' , 2 , 2);
+  diabetesDrug diabetes = diabetesDrug('t', 't', 't', 't', 5 , 5 , 4.5 , 't');
+  bloodPressureDrug bloodPressure = bloodPressureDrug('b', 'b', 'b', 'b', 6 , 6 , 5.49 , 'b');
+  Drugs d1 = Drugs('q' , 'q' , 'q' , 'q' , 1 , 1 , 20);
+  Drugs d2 = Drugs('m' , 'm' , 'm' , 'm' , 2 , 2 , 15.4);
   List Basket = [];
   List allDrugs = [diabetes , bloodPressure , d1 , d2];
 
@@ -176,6 +201,7 @@ void main(){
 
     int? recommendedAge;
     int? dailyDose;
+    double? sellPrice;
 
     if(adminOrUser == '1'){
 
@@ -256,11 +282,23 @@ void main(){
                     continue;
                   }
                 }
+
+                if(sellPrice == null){
+                  try {
+                    print('enter the sell price');
+                    sellPrice = double.parse(stdin.readLineSync()!);
+                  }
+
+                  catch (e) {
+                    print('enter a valid value');
+                    continue;
+                  }
+                }
                 break;
               }
 
               Drugs pharmacy = Drugs(nameDrug , actionsAndPropertiesDrug , indicationsDrug , 
-              warningsDrug , recommendedAge , dailyDose);
+              warningsDrug , recommendedAge , dailyDose , sellPrice);
               pharmacy.drugInfo();
               allDrugs.add(pharmacy);
               recommendedAge = null;
@@ -495,20 +533,27 @@ void main(){
                         
                         print('__' * 10);
                         print('These are the contents of the basket');
+
+                        var total = 0.0;
                         for(var i = 0 ; i < Basket.length ; i++){
                           print('This is drug number ${i+1}');
                           print('drug name: ${Basket[i].nameDrug}');
+                          total =  total + Basket[i].sellPrice;
                         }
+                        print('Total drug prices: $total');
                         break;
                       }
 
                       else if(addOrNO == 'n'){
                         print('__' * 10);
                         print('These are the contents of the basket');
+
+                        var total = 0.0;
                         for(var i = 0 ; i < Basket.length ; i++){
                           print('This is drug number ${i+1}');
-                          print('drug name: ${Basket[i].nameDrug}');
+                          total =  total + Basket[i].sellPrice;
                         }
+                        print('Total drug prices: $total');
                         break;
                       }
 
@@ -529,7 +574,6 @@ void main(){
 
                       if(showOrBack == 1){
                         for(var i = 0 ; i < Basket.length ; i++){
-                          // Basket[i].drugInfo();
                           print('This is drug number ${i+1}');
                           print('drug name: ${Basket[i].nameDrug}');
                         }
@@ -593,20 +637,27 @@ void main(){
 
                                 print('__' * 10);
                                 print('These are the contents of the basket');
+
+                                var total = 0.0;
                                 for(var i = 0 ; i < Basket.length ; i++){
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
+                                  total =  total + Basket[i].sellPrice;
                                 }
+                                print('Total drug prices: $total');
                                 break;
                               }
 
                               else if(addOrNO == 'n'){
                                 print('__' * 10);
                                 print('These are the contents of the basket');
+
+                                var total = 0.0;
                                 for(var i = 0 ; i < Basket.length ; i++){
                                   print('This is drug number ${i+1}');
-                                  print('drug name: ${Basket[i].nameDrug}');
+                                  total =  total + Basket[i].sellPrice;
                                 }
+                                print('Total drug prices: $total');
                                 break;
                               }
 
@@ -630,7 +681,6 @@ void main(){
                               if(remove == 'y'){
                                 
                                 for(var i = 0 ; i < Basket.length ; i++){
-                                  //Basket[i].drugInfo();
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
                                 }
@@ -793,20 +843,27 @@ void main(){
 
                         print('__' * 10);
                         print('These are the contents of the basket');
+
+                        var total = 0.0;
                         for(var i = 0 ; i < Basket.length ; i++){
                           print('This is drug number ${i+1}');
                           print('drug name: ${Basket[i].nameDrug}');
+                          total =  total + Basket[i].sellPrice;
                         }
+                        print('Total drug prices: $total');
                         break;
                       }
 
                       else if(addOrNO == 'n'){
                         print('__' * 10);
                         print('These are the contents of the basket');
+
+                        var total = 0.0;
                         for(var i = 0 ; i < Basket.length ; i++){
                           print('This is drug number ${i+1}');
-                          print('drug name: ${Basket[i].nameDrug}');
+                          total =  total + Basket[i].sellPrice;
                         }
+                        print('Total drug prices: $total');
                         break;
                       }
 
@@ -890,20 +947,27 @@ void main(){
 
                                 print('__' * 10);
                                 print('These are the contents of the basket');
+
+                                var total = 0.0;
                                 for(var i = 0 ; i < Basket.length ; i++){
                                   print('This is drug number ${i+1}');
                                   print('drug name: ${Basket[i].nameDrug}');
+                                  total =  total + Basket[i].sellPrice;
                                 }
+                                print('Total drug prices: $total');
                                 break;
                               }
 
                               else if(addOrNO == 'n'){
                                 print('__' * 10);
                                 print('These are the contents of the basket');
+
+                                var total = 0.0;
                                 for(var i = 0 ; i < Basket.length ; i++){
                                   print('This is drug number ${i+1}');
-                                  print('drug name: ${Basket[i].nameDrug}');
+                                  total =  total + Basket[i].sellPrice;
                                 }
+                                print('Total drug prices: $total');
                                 break;
                               }
 
